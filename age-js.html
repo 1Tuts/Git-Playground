@@ -8,7 +8,7 @@
 		background-image:url('bg.jpg');
 		background-repeat:repeat;
 	}	
-	
+
 	div.container {
 		width:560px;
 		min-height:300px;
@@ -17,7 +17,7 @@
 		border-radius:50%;
 		box-shadow:0 1px 120px #800000;	
 	}
-	
+
 	p {
 		font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 		font-size:24px;
@@ -31,30 +31,21 @@
 	window.onload = function (){
 		var age=a;
 		var thisyear=new Date();
-		var etr=thisyear.getFullYear()-a;
-		document.getElementById("age").innerHTML=etr;
-		try {
-			if (a>150) {
-				throw "Err1";	
+		
+			if(a>0 && a<150){
+				var etr=thisyear.getFullYear()-a;
+				document.getElementById("age").innerHTML=etr;
 			}
-			else if (a<0) {
-				throw "Err2";	
+			else if (a>=150) {
+				document.getElementById("age").innerHTML="Your input is very big !";
+			}
+			else if (a<=0) {
+				document.getElementById("age").innerHTML="Your input is very small !"	
 			}
 			else if (isNAN(a)) {
-				throw "Err3";
+				document.getElementById("age").innerHTML="Your input is empty !"
 			}
-		}
-		catch (err) {
-			if (err==Err1) {
-				document.write("Your input is very big !");	
-			}
-			if (err==Err2) {
-				document.write("Your input is very small !");
-			}
-			if (err==Err3) {
-					document.write("Your input is empty !");
-			}
-		}
+		
 	}
 </script>
 </head>
